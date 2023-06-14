@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
   return (
     <>
@@ -7,16 +9,21 @@ function App() {
   );
 }
 
-// UserDefineTag
 function CounterApp() {
-  // Member Function
+  // let counter = 100; // stateless
+  let [counter, setCounter] = useState(100); // stateful + DOM Opr
+
   let likeMeAction = () => {
-    // alert();
-    console.log("I m button click");
+    counter = counter + 1;
+    console.log(counter);
+
+    // Asking react to perform dom opr
+    setCounter(counter);
   };
 
   return (
     <>
+      <h1>{counter}</h1>
       <input type="button" value="Like Me" onClick={likeMeAction} />
     </>
   );
